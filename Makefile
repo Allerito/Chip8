@@ -18,22 +18,22 @@ all: $(EXEC)
 
 # Link object files to create the executable
 $(EXEC): $(OBJS)
-    $(CC) $(CFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) -o $@ $^
 
 # Compile source files to object files
 %.o: %.cpp
-    $(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 # Build executable target
 build-exe: $(EXEC)
 
 # Test target
 test:
-    for test_file in test/*; do ./$$test_file; done
+	for test_file in test/*; do ./$$test_file; done
 
 # Clean up build files
 clean:
-    rm -f $(OBJS) $(EXEC)
+	rm -f $(OBJS) $(EXEC)
 
 # Phony targets
 .PHONY: all clean build-exe test
