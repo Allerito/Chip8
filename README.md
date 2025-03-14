@@ -6,8 +6,6 @@ CHIP-8 soon spread to other computers, like the Finnish Telmac 1800, the Austral
 
 By 1984 the interest in CHIP-8 petered out. However, in 1990 it had a renaissance on the HP48 graphing calculators with CHIP-48 and the now-famous SUPER-CHIP extension with higher resolution.
 
-With so many different implementations over several decades, there are many inconsistent specifications. I’ll clear those up for you along the way.
-
 ## Chip8 components
 
 - Memory: CHIP-8 has direct access to up to 4 kilobytes of RAM
