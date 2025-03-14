@@ -1,0 +1,25 @@
+#!/bin/bash
+# filepath: c:\Users\Aller\Dev\Chip8\configure
+
+echo "Checking for necessary dependencies..."
+
+# Check for gcc
+if ! [ -x "$(command -v gcc)" ]; then
+  echo 'Error: gcc is not installed.' >&2
+  exit 1
+fi
+
+# Check for make
+if ! [ -x "$(command -v make)" ]; then
+  echo 'Error: make is not installed.' >&2
+  exit 1
+fi
+
+echo "All necessary dependencies are installed."
+echo "Configuring the build environment..."
+
+# Add any additional configuration steps here
+
+echo "Configuration complete."
+
+chmod +x configure
