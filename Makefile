@@ -24,9 +24,16 @@ $(EXEC): $(OBJS)
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+# Build executable target
+build-exe: $(EXEC)
+
+# Test target
+test:
+	for test_file in test/*; do ./$$test_file; done
+
 # Clean up build files
 clean:
 	rm -f $(OBJS) $(EXEC)
 
 # Phony targets
-.PHONY: all clean
+.PHONY: all clean build-exe test

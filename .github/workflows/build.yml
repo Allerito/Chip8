@@ -8,16 +8,14 @@ on:
       - '*.*.*'
 
 jobs:
+  setup:
+    uses: ./.github/workflows/setup.yml
+
   build:
     runs-on: ubuntu-latest
+    needs: setup
 
     steps:
     - uses: actions/checkout@v4
-    - name: Make configure script executable
-      run: chmod +x ./configure
-    - name: configure
-      run: ./configure
-    - name: make
-      run: make
     - name: build executable
       run: make build-exe
