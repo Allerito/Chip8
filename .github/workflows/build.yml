@@ -13,7 +13,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Ensure configure script is executable
+    - name: Make configure script executable
       run: chmod +x ./configure
     - name: configure
       run: ./configure
