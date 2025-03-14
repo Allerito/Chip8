@@ -1,0 +1,21 @@
+name: Build Chip8 CI
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - '*.*.*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: configure
+      run: ./configure
+    - name: make
+      run: make
+    - name: build executable
+      run: make build-exe
