@@ -2,7 +2,7 @@
 CC = g++
 
 # Compiler flags
-CFLAGS = -Wall -Wextra -std=c++11
+CFLAGS = -Wall -Wextra -std=c++11 -Iinclude
 
 # Source files
 SRCS = $(wildcard src/*.cpp) $(wildcard test/*.cpp)
