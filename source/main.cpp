@@ -2,6 +2,7 @@
 #include <iostream>
 
 int main() {
-    Chip8 chip8 = Chip8();
+    Chip8 chip8;
+    chip8.loadRom(".\\roms\\BRIX");
     exit(0);
 }

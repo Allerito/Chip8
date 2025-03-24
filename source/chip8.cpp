@@ -1,7 +1,7 @@
 #include <cstring>
 #include <fstream>
 #include <iostream>
-#include "chip8.h"
+#include "../include/chip8.h"
 
 // Constructor
 Chip8::Chip8()
@@ -26,20 +26,20 @@ Chip8::Chip8()
         0xF0, 0x80, 0xF0, 0x80, 0x80  // F
     };
 
-    pc = 0x200; // 0x000 to 0x1FF is reserved for interpreter
+    programCounter = 0x200; // 0x000 to 0x1FF is reserved for interpreter
 
     // Resetting registers
     I = 0;
-    sp = 0;
-    sound_timer = 0;
-    delay_timer = 0;
+    stackPointer = 0;
+    soundTimer = 0;
+    delayTimer = 0;
 
     // Clear registers, stack and memory
     memset(V, 0, sizeof(V));
     memset(stack, 0, sizeof(stack));
     memset(memory, 0, sizeof(memory));
 
-    draw_flag = false;
+    drawFlag = false;
 
     // Load fontset from 0 to 80
     for (int i = 0; i < 80; i++)
@@ -53,7 +53,7 @@ Chip8::Chip8()
 }
 
 // Function to load ROM, with path to ROM given as argument
-bool Chip8::load_rom(std::string rom_path)
+bool Chip8::loadRom(std::string rom_path)
 {
     std::ifstream f(rom_path, std::ios::binary | std::ios::in);
     if (!f.is_open())
@@ -76,22 +76,22 @@ bool Chip8::load_rom(std::string rom_path)
     return true;
 }
 
-bool Chip8::get_draw_flag()
+bool Chip8::getDrawFlag()
 {
-    return draw_flag;
+    return drawFlag;
 }
 
-void Chip8::set_draw_flag(bool flag)
+void Chip8::setDrawFlag(bool flag)
 {
-    draw_flag = flag;
+    drawFlag = flag;
 }
 
-int Chip8::get_display_value(int i)
+int Chip8::getDisplayValue(int i)
 {
     return display[i];
 }
 
-void Chip8::set_keypad_value(int index, int val)
+void Chip8::setKeypadValue(int index, int val)
 {
     keypad[index] = val;
 }
