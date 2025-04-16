@@ -40,6 +40,10 @@ class Chip8
         void setKeypadValue(int, int);
 
         ~Chip8(); // Destructor
+
+        void singleCycle();
+
+        int getNibble(int, int, int);
 };
 
 #endif
